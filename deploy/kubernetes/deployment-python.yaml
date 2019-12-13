@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-flask
+  labels:
+    deploy: flask-python
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      backend: python
+  template:
+    metadata:
+      name: info-pod
+      labels:
+        backend: python
+    spec:
+      containers:
+        - name: name-pod
+          image: crileroro/name-pod
